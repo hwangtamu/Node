@@ -1,0 +1,28 @@
+doctype
+html
+  head
+    title #{title} - Han's Site
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css')
+  body
+    header
+
+      div(class="fixed")
+        nav(class="top-bar")
+          div(class="top-bar-left")
+            ul(class="menu")
+              li(class="menu")
+                a(href="/") hanwang.us
+          div(class="top-bar-right")
+            ul(class="menu")
+              li
+                a(href="Python") Python
+              li
+                a(href="420") 420
+    .container
+      .main-content
+        block content
+      .sidebar
+        block sidebar
+    footer
+      p Powered by Express © 2018 Han Wang
