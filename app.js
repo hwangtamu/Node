@@ -5,14 +5,23 @@ var express = require('express')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongo = require('mongodb');
 // var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var pythonRouter = require('./routes/python');
+var createRouter = require('./routes/create');
 
 var app = express();
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
 
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    console.log("Database created!");
+    db.close();
+});
 // //Import the mongoose module
 //
 // //Set up default mongoose connection
@@ -40,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/python', pythonRouter);
+app.use('/python/create', createRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
