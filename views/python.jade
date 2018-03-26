@@ -9,17 +9,9 @@ body
     block content
         h4 #{pythonData.name}
         pre(class="prettyprint")
+            //textarea#python-source
             each val in pythonData.code
-                a= val
-            //| class ExampleClass(ParentClass):
-            //|     @staticmethod
-            //|     def example(inputStr):
-            //|         a = list(inputStr)
-            //|         a.reverse()
-            //|         return ''.join(a)
-            //
-            //|     def __init__(self, mixin = 'Hello'):
-            //|         self.mixin = mixin
+                span= val
         p
             | #{pythonData.content}
     block sidebar

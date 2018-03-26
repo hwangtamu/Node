@@ -5,7 +5,7 @@ var router = express.Router();
 var obj = fs.readFileSync('data/python.json');
 var pythonData = JSON.parse(obj);
 console.log(pythonData.pythonData);
-/* GET users listing. */
+
 router.get('/', function(req, res, next) {
 
     res.render('python',
