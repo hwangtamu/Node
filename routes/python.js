@@ -1,10 +1,15 @@
 var express = require('express');
-var router = express.Router();
+var fs = require('fs');
 
+var router = express.Router();
+var obj = fs.readFileSync('data/python.json');
+var pythonData = JSON.parse(obj);
+console.log(pythonData.pythonData);
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+
     res.render('python',
-    { title : 'Python' })
+    { title : 'Python', pythonData: pythonData.pythonData})
 });
 
 module.exports = router;

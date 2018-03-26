@@ -1,0 +1,15 @@
+{
+    "pythonData" :{
+      "name": "Python",
+      "content": "Hello World!",
+      "code":["class ExampleClass(ParentClass):\n",
+              "    @staticmethod\n",
+              "    def example(inputStr):\n",
+              "        a = list(inputStr)\n",
+              "        a.reverse()\n",
+              "        return ''.join(a)\n",
+              "\n",
+              "    def __init__(self, mixin = 'Hello'):\n",
+              "        self.mixin = mixin\n"]
+    }
+}

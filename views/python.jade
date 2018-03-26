@@ -1,16 +1,29 @@
 extend layout
-block content
-    h4 Python
-    pre(class="prettyprint")
-        | def get_primes(n):
-    p
-        | Donec congue lacinia dui, a porttitor
-        | lectus condimentum laoreet. Nunc eu
-        | ullamcorper orci. Quisque eget odio ac
-        | lectus vestibulum faucibus eget in metus.
-        | In pellentesque faucibus vestibulum. Nulla
-        | at nulla justo, eget luctus tortor.
-block sidebar
-    ul(class="menu", id="create")
-        li
-            a(href="/python/create") Create new post
+head
+    script(type='text/javascript', src="../public/js/codemirror.js")
+    script(type='text/javascript', src="../public/js/util.js")
+
+body
+    .script
+        var pythonData = #{ pythonData };
+    block content
+        h4 #{pythonData.name}
+        pre(class="prettyprint")
+            each val in pythonData.code
+                a= val
+            //| class ExampleClass(ParentClass):
+            //|     @staticmethod
+            //|     def example(inputStr):
+            //|         a = list(inputStr)
+            //|         a.reverse()
+            //|         return ''.join(a)
+            //
+            //|     def __init__(self, mixin = 'Hello'):
+            //|         self.mixin = mixin
+        p
+            | #{pythonData.content}
+    block sidebar
+        ul(class="menu", id="create")
+            li
+                a(href="/python/create") Create new post
+

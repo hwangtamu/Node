@@ -1,6 +1,12 @@
 extend layout
+head
+    script(type='text/javascript', src="/lib/codemirror.js")
+    script(type='text/javascript', src="/mode/javascript/javascript.js")
+
 block content
     div(class="large-12 columns")
         label
             | Title
-            input(type='text', name='post', value='')
+            pre(class="prettyprint")
+                input(type='text', name='post', value='')
+

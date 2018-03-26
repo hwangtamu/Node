@@ -1,11 +1,10 @@
 var createError = require('http-errors');
 var express = require('express')
     , nib = require('nib');
-
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongo = require('mongodb');
+//var mongo = require('mongodb');
 // var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
@@ -14,14 +13,14 @@ var pythonRouter = require('./routes/python');
 var createRouter = require('./routes/create');
 
 var app = express();
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/mydb";
-
-MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    console.log("Database created!");
-    db.close();
-});
+// var MongoClient = require('mongodb').MongoClient;
+// var url = "mongodb://localhost:27017/mydb";
+//
+// MongoClient.connect(url, function(err, db) {
+//     if (err) throw err;
+//     console.log("Database created!");
+//     db.close();
+// });
 // //Import the mongoose module
 //
 // //Set up default mongoose connection
