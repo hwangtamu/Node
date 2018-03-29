@@ -1,40 +1,19 @@
 var createError = require('http-errors');
-var express = require('express')
-    , nib = require('nib');
+var express = require('express'),
+      hbs = require('express-handlebars').create({defaultLayout:'main.hbs'}),
+      nib = require('nib');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//var mongo = require('mongodb');
-// var mongoose = require('mongoose');
+
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var postsRouter = require('./routes/posts');
 var pythonRouter = require('./routes/python');
 var createRouter = require('./routes/create');
 
 var app = express();
-// var MongoClient = require('mongodb').MongoClient;
-// var url = "mongodb://localhost:27017/mydb";
-//
-// MongoClient.connect(url, function(err, db) {
-//     if (err) throw err;
-//     console.log("Database created!");
-//     db.close();
-// });
-// //Import the mongoose module
-//
-// //Set up default mongoose connection
-// var mongoDB = 'mongodb://127.0.0.1/my_database';
-// mongoose.connect(mongoDB);
-// // Get Mongoose to use the global promise library
-// mongoose.Promise = global.Promise;
-// //Get the default connection
-// var db = mongoose.connection;
 
-//Bind connection to error event (to get notification of connection errors)
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -46,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
 app.use('/python', pythonRouter);
 app.use('/python/create', createRouter);
 
