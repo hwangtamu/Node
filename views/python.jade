@@ -1,18 +1,21 @@
 extend layout
 head
-    script(type='text/javascript', src="../public/js/codemirror.js")
     script(type='text/javascript', src="../public/js/util.js")
 body
     .script
         var pythonData = #{ pythonData };
     block content
-        h4 #{pythonData.name}
-        pre(class="prettyprint")
-            //textarea#python-source
-            each val in pythonData.code
-                span= val
-        p
-            | #{pythonData.content}
+        mixin summary(a,b,c)
+            a(href='/') #{a}
+            p= c
+            pre(class="prettyprint")
+                each val in b
+                    span= val
+            //a(href='/') read more
+            p
+
+        each i in pythonData
+            +summary(i.title, i.code, i.content)
     block sidebar
         ul(class="menu", id="create")
             li
