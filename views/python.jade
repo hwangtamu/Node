@@ -5,7 +5,8 @@ body
     .script
         var pythonData = #{ pythonData };
     block content
-        mixin summary(a,b,c)
+        mixin summary(a,b,c,d)
+            text(class="tag")= d
             a(href='/') #{a}
             p= c
             pre(class="prettyprint")
@@ -15,7 +16,7 @@ body
             p
 
         each i in pythonData
-            +summary(i.title, i.code, i.content)
+            +summary(i.title, i.code, i.content, i.tag)
     block sidebar
         ul(class="menu", id="create")
             li

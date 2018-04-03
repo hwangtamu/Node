@@ -143,6 +143,11 @@ header {
   float: left;
   width: 200px;
 }
+.tag {
+  font-size: 13px;
+  border: 1px solid #ccc;
+  background-color: #86defa;
+}
 .sidebar .widget {
 /*
      * Note the lack of vendor
