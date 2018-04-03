@@ -2,6 +2,7 @@
     "1" :{
       "title": "Python",
       "content": "Hello World!",
+      "id":"1",
       "tag": "Basics",
       "code":["class ExampleClass(ParentClass):\n",
               "    @staticmethod\n",
@@ -17,6 +18,7 @@
     "2" :{
       "title": "Python",
       "content": "Hello World!",
+      "id":"2",
       "tag":"Basics",
       "code":["class ExampleClass(ParentClass):\n",
               "    @staticmethod\n",

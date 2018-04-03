@@ -5,18 +5,17 @@ body
     .script
         var pythonData = #{ pythonData };
     block content
-        mixin summary(a,b,c,d)
+        mixin summary(a,b,d)
             text(class="tag")= d
-            a(href='/') #{a}
-            p= c
-            pre(class="prettyprint")
-                each val in b
-                    span= val
-            //a(href='/') read more
+            a(href='/article/'+b) #{a}
+            //p= c
+            //pre(class="prettyprint")
+            //    each val in b
+            //        span= val
             p
 
         each i in pythonData
-            +summary(i.title, i.code, i.content, i.tag)
+            +summary(i.title, i.id, i.tag)
     block sidebar
         ul(class="menu", id="create")
             li
