@@ -1,12 +1,14 @@
 {
   "1" : {
     "title":"Training RNNs as Fast as CNNs",
+    "tag":"Reading",
     "date":"3/26/2018",
-    "content":"Paper"
+    "abstract":"Paper"
   },
   "2" : {
     "title":"Training RNNs as Fast as CNNs",
+    "tag":"Reading",
     "date":"3/27/2018",
-    "content":"Paper"
+    "abstract":"Paper"
   }
 }

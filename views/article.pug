@@ -1,0 +1,14 @@
+extend layout
+include mixins/utils
+
+block content
+    script.
+        var articleData = #{ articleData };
+        var pythonData = #{ pythonDaata};
+
+    +python(articleData)
+    textarea#editor #{pythonData}
+
+    +codeBlock()
+
+

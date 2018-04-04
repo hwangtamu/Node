@@ -1,0 +1,26 @@
+mixin pythonList(a,b,d)
+    text(class="tag")= d
+    a(href='/article/'+b) #{a}
+    p
+
+mixin postList(a,b,c,d)
+    text(class="tag")= d
+    a(href='/') #{a}
+    p= b
+    p= c
+    a(href='/') read more
+    p
+
+mixin python(a)
+    text(class="tag")= a.tag
+    a(href='/article/'+a.id) #{a.title}
+    p= a.content
+
+mixin codeBlock()
+    script.
+        var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            lineNumbers: true,
+            mode: "text/x-python",
+            lineWrapping: true
+        });
+        editor.setSize('100%', '100%');

@@ -1,0 +1,9 @@
+extends layout
+include mixins/utils
+block content
+    script.
+        var postsData = #{ postsData };
+
+    each i in postsData
+        +postList(i.title, i.date, i.abstract, i.tag)
+    :markdown-it(linkify langPrefix='highlight-')
