@@ -1,11 +1,20 @@
 var createError = require('http-errors');
 var express = require('express'),
-      hbs = require('express-handlebars').create({defaultLayout:'main.hbs'}),
-      nib = require('nib');
+      hbs = require('express-handlebars').create({defaultLayout:'main.hbs'});
+var mongoose = require('mongoose');
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
+
 var logger = require('morgan');
 
+var uri = 'mongodb://hwangtamu:wh07092053@ds231589.mlab.com:31589/hanwang-us';
+
+mongoose.connect(uri);
+
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var indexRouter = require('./routes/index');
 var postsRouter = require('./routes/posts');
