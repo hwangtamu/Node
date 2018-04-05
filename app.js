@@ -10,7 +10,7 @@ var logger = require('morgan');
 
 const uri = 'mongodb://hwangtamu:wh07092053@ds231589.mlab.com:31589/hanwang-us';
 
-mongoose.connect(uri);
+mongoose.connect(uri, { keepAlive: 120 });
 
 var db = mongoose.connection;
 
