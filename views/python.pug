@@ -4,11 +4,9 @@ include mixins/utils
 block content
     script.
         var pythonData = #{pythonData};
+        console.log(pythonData);
 
     each i in pythonData
-        +pythonList(i.title, i.id, i.tag)
-    //block sidebar
-    //    ul(class="menu", id="create")
-    //        li
-    //            a(href="/python/create") Create new post
+        if i.title
+            +pythonList(i.title, i.id, i.tag)
 

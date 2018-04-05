@@ -4,7 +4,8 @@ var pythonSchema = new Schema({
     title : String,
     content : String,
     id : String,
-    tag : String
+    tag : String,
+    code : String
 });
 
-module.exports = mongoose.model('python', pythonSchema );
+module.exports = mongoose.model('python', pythonSchema, 'python');

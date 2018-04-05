@@ -8,7 +8,7 @@ var cookieParser = require('cookie-parser');
 
 var logger = require('morgan');
 
-var uri = 'mongodb://hwangtamu:wh07092053@ds231589.mlab.com:31589/hanwang-us';
+const uri = 'mongodb://hwangtamu:wh07092053@ds231589.mlab.com:31589/hanwang-us';
 
 mongoose.connect(uri);
 

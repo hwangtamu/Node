@@ -1,5 +1,6 @@
 mixin pythonList(a,b,d)
-    text(class="tag")= d
+    each i in d
+        text(class="tag")= i
     a(href='/article/'+b) #{a}
     p
 
@@ -12,9 +13,12 @@ mixin postList(a,b,c,d)
     p
 
 mixin python(a)
-    text(class="tag")= a.tag
+    each i in a.tag
+        text(class="tag")= i
     a(href='/article/'+a.id) #{a.title}
     p= a.content
+    script(type='text/javascript', src="https://gist.github.com/hwangtamu/"+a.code+".js")
+
 
 mixin codeBlock()
     script.
