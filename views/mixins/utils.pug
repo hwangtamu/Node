@@ -4,13 +4,13 @@ mixin pythonList(a,b,d)
     a(href='/article/'+b) #{a}
     p
 
-mixin postList(a,b,c,d)
-    text(class="tag")= d
-    a(href='/') #{a}
-    p= b
-    p= c
-    a(href='/') read more
-    p
+mixin postList(a)
+    each i in a.tag
+        span(class="tag")= i
+    a(href='/article/p'+a.id) #{a.title}
+    p= a.date
+    p= a.abstract
+
 
 mixin python(a)
     each i in a.tag
@@ -18,6 +18,18 @@ mixin python(a)
     a(href='/article/'+a.id) #{a.title}
     p= a.content
     script(type='text/javascript', src="https://gist.github.com/hwangtamu/"+a.code+".js")
+
+mixin post(a,b)
+    each i in a.tag
+        span(class="tag")= i
+    p
+        a(class="title" href='/article/p'+a.id) #{a.title}
+    p= a.date
+    each i in b
+        if i.slice(0,4) == "http"
+            img(src=i)
+        else
+            | !{i}
 
 
 mixin codeBlock()

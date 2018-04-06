@@ -108,6 +108,7 @@ body {
   background-color: #ebffb9;
   color: #444;
 }
+
 header {
   font-family: 'Quicksand';
   padding: 0px 0px;
@@ -127,6 +128,11 @@ header {
   background-color: #14c4fa;
 }
 
+.top-bar a:hover {
+  background: #ddd;
+  color: black;
+}
+
 .container {
   width: 800px;
   margin: 50px auto;
@@ -134,7 +140,7 @@ header {
 }
 .main-content {
   float: left;
-  width: 600px;
+  width: 800px;
 }
 .main-content p {
   margin-bottom: 20px;
@@ -147,6 +153,11 @@ header {
   font-size: 13px;
   border: 1px solid #ccc;
   background-color: #86defa;
+  margin-left:3px;
+}
+a.title {
+  font-size: 22px;
+  text-decoration: none;
 }
 .sidebar .widget {
 /*

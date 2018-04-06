@@ -3,7 +3,8 @@ include mixins/utils
 
 block content
     script.
+        var metaData = #{metaData};
         var articleData = #{ articleData };
-    +python(articleData)
+    +post(metaData, articleData)
 
 

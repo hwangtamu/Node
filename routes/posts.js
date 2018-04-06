@@ -6,6 +6,7 @@ var postsData = JSON.parse(obj);
 
 
 router.get('/', function(req, res, next) {
+
     res.render('posts',
         { title : 'Posts', postsData: postsData})
 });

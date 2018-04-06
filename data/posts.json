@@ -1,14 +1,16 @@
 {
   "1" : {
     "title":"[1511.06464] Unitary Evolution Recurrent Neural Networks - arXiv",
-    "tag":"Reading",
+    "tag":["Reading","RNN"],
     "date":"3/26/2018",
-    "abstract":"Paper"
+    "abstract":"Paper",
+    "id":"1"
   },
   "2" : {
     "title":"[1706.02761] Gated Orthogonal Recurrent Units: On Learning to Forget - arXiv",
-    "tag":"Reading",
+    "tag":["Reading","RNN"],
     "date":"3/27/2018",
-    "abstract":"Paper"
+    "abstract":"Paper",
+    "id":"2"
   }
 }

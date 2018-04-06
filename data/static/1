@@ -1,0 +1,5 @@
+<h4>Why unitary matrix?</h4>
+<p>
+Gradient exploding and vanishing problem happens when eigenvalues of hidden to hidden weight matrix deviate from absolute value 1.
+A unitary matrix restricts all eigenvalues have absolute value 1.
+</p>
