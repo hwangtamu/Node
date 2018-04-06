@@ -3,3 +3,6 @@
 Gradient exploding and vanishing problem happens when eigenvalues of hidden to hidden weight matrix deviate from absolute value 1.
 A unitary matrix restricts all eigenvalues have absolute value 1.
 </p>
+<h4>Related work</h4>
+<Strong></Strong>
+

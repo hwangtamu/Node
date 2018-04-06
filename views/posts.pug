@@ -5,6 +5,7 @@ block content
         var postsData = #{ postsData };
 
     each i in postsData
-        +postList(i)
+        if i.title
+            +postList(i)
 
 

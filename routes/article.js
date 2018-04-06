@@ -23,14 +23,12 @@ router.get('/:name', function(req, res, next) {
                 { title : get_file(n).title, articleData: get_file(n)})
         });
     }else{
-        var fs = require('fs');
-        var obj = fs.readFileSync('data/posts.json');
-        var metaData = JSON.parse(obj)[n.slice(1,n.length)];
-        var articleData = fs.readFileSync('data/static/'+metaData.id, 'utf-8').toString().split("\n");
-        console.log(articleData);
+        find('articles',{}, function(err, docs){
+           metaData = docs[0][n.slice(1,n.length)];
+            res.render('post',
+                {title : metaData.title, metaData : metaData, articleData : metaData.content})
+        });
 
-        res.render('post',
-            {title : metaData.title, metaData : metaData, articleData : articleData})
     }
 
 });

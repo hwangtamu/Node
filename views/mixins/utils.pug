@@ -26,10 +26,7 @@ mixin post(a,b)
         a(class="title" href='/article/p'+a.id) #{a.title}
     p= a.date
     each i in b
-        if i.slice(0,4) == "http"
-            img(src=i)
-        else
-            | !{i}
+        | !{i}
 
 
 mixin codeBlock()
@@ -40,3 +37,25 @@ mixin codeBlock()
             lineWrapping: true
         });
         editor.setSize('100%', '100%');
+
+mixin disqus()
+    #disqus_thread
+
+    script.
+        var disqus_config = function () {
+            this.page.url = "#{fullUrl}";
+            this.page.identifier = "#{identifier}";
+            this.page.title = "#{title}"
+        };
+
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//hanwang-us.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+
+    noscript.
+        Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
