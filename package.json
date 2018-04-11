@@ -7,12 +7,15 @@
     "devstart": "nodemon ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
     "codemirror": "^5.36.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "express-handlebars": "^3.0.0",
     "fs": "0.0.1-security",
+    "gist": "^0.2.0",
+    "gists": "^1.0.1",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "jade-code-mirror": "^2.0.0",
@@ -25,6 +28,7 @@
     "nib": "^1.1.2",
     "npm": "^5.8.0",
     "pug": "^2.0.3",
+    "request": "^2.85.0",
     "stylus": "^0.54.5"
   },
   "devDependencies": {

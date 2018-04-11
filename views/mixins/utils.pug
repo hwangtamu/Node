@@ -28,6 +28,35 @@ mixin post(a,b)
     each i in b
         | !{i}
 
+mixin gist(d)
+    img.gistAvatar(src=d.owner.avatar_url)
+    a.gist_name(href=d.owner.url) #{d.owner.login}/
+    each v,k in d.files
+        a.gist_name(href=d.html_url) #{k}
+        - break
+    - var md = Math.floor((parseInt(Date.now())-parseInt(Date.parse(d.updated_at)))/1000)
+    - var cd = Math.floor((parseInt(Date.now())-parseInt(Date.parse(d.created_at)))/1000)
+    if d.created_at==d.updated_at
+        - var m = Math.floor(cd/60)
+        - var s = cd % 60
+        if m == 0
+            div.date Created #{s} seconds ago
+        else if m == 1
+            div.date Created 1 minute #{s} seconds ago
+        else
+            div.date Created #{m} minutes #{s} seconds ago
+    else
+        - var m = Math.floor(md/60)
+        - var s = md % 60
+        if m == 0
+            div.date Created #{s} seconds ago
+        else if m == 1
+            div.date Created 1 minute #{s} seconds ago
+        else
+            div.date Created #{m} minutes #{s} seconds ago
+    div.desc #{d.description}
+
+    script(type='text/javascript', src="https://gist.github.com/"+d.owner.login+"/" + d.id + ".js")
 
 mixin codeBlock()
     script.
