@@ -10,6 +10,7 @@ var gistData;
 var get_gists = function (name, query, cb) {
     gists.allPublic({}, function(err, res){
         gistData = res.slice(0, 5).sort(function(a,b){
+            console.log(gistData);
             return parseInt(Date.parse(a.modified_at)) - parseInt(Date.parse(b.modified_at));
         });
     });
