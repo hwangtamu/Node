@@ -9,7 +9,7 @@ var gistData;
 var url = "http://api.github.com/gists/public";
 
 var get_gists = function (cb) {
-    gists.allPublic({}, function(err, res){
+    gists.allPublic({}, function(err, res   ){
         gistData = res.slice(0, 5).sort(function(a,b){
             return parseInt(Date.parse(a.modified_at)) - parseInt(Date.parse(b.modified_at));
         });
