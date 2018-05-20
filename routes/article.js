@@ -24,7 +24,7 @@ router.get('/:name', function(req, res, next) {
         });
     }else{
         find('articles',{}, function(err, docs){
-           metaData = docs[0][n.slice(1,n.length)];
+           metaData = docs[0][-n.slice(1,n.length)];
             res.render('post',
                 {title : metaData.title, metaData : metaData, articleData : metaData.content})
         });
