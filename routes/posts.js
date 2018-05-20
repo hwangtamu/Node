@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
     find('articles',{}, function(err, docs){
         postsData = docs[0];
         res.render('posts',
-            { title : 'Posts', postsData: postsData})
+        { title : 'Posts', postsData: postsData})
     });
 
 });

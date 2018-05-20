@@ -154,11 +154,16 @@ header {
   width: 200px;
 }
 .tag {
-  font-size: 13px;
+  font-size: 18px;
   border: 1px solid #ccc;
   background-color: #86defa;
   margin-left:3px;
 }
+
+.postList{
+  font-size: 20px;
+}
+
 a.title {
   font-size: 22px;
   text-decoration: none;
