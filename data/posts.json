@@ -13,7 +13,7 @@
     "date":"",
     "abstract":"Unlike previous unknown nouns tagging task (Curran, 2005)(Ciaramita and Johnson, 2003), this is the first attempt to focus on out-of-vocabulary (OOV) lexical evaluation tasks that does not require any prior knowledge. The OOV words are words that only appear in test samples. The goal of tasks is to pro-vide solutions for OOV lexical classification and predication. The tasks require annotators to conclude the attributes of the OOV words based on their related contexts. Then, we uti-lize unsupervised word embedding methods such as Word2Vec (Mikolov et al., 2013) and Word2GM (Athiwaratkun and Wilson, 2017) to perform the baseline experiments on the cat-egorical classification task and OOV words at-tribute prediction tasks.",
     "id":"2",
-    "content":"naaclhtl2018_revised.pdf"
+    "content":"1804.04242.pdf"
   },
   "3" : {
     "title":"Dynamical analysis of recurrent neural circuits in articulated limb controllers for tool use",
