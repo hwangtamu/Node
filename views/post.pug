@@ -3,7 +3,6 @@ include mixins/utils
 
 block content
     script.
-        var metaData = #{metaData};
         var articleData = #{ articleData };
-    +post(metaData, articleData)
+    +post(articleData)
     +disqus()

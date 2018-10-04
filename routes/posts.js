@@ -12,6 +12,7 @@ function find (name, query, cb) {
 router.get('/', function(req, res, next) {
     find('articles',{}, function(err, docs){
         postsData = docs[0];
+        console.log(postsData);
         res.render('posts',
         { title : 'Posts', postsData: postsData})
     });

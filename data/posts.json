@@ -1,16 +1,26 @@
 {
   "1" : {
-    "title":"[1511.06464] Unitary Evolution Recurrent Neural Networks - arXiv",
-    "tag":["Reading","RNN"],
-    "date":"3/26/2018",
-    "abstract":"Paper",
-    "id":"1"
+    "title":"Balancing Privacy and Information Disclosure in Interactive Record Linkage with Visual Masking",
+    "tag":["CHI2018"],
+    "date":"",
+    "abstract":"Effective use of data involving personal or sensitive information often requires different people to have access to personal information, which significantly reduces the personal privacy of those whose data is stored and increases risk of identity theft, data leaks, or social engineering attacks. Our research studies the tradeoffs between privacy and utility of personal information for human decision making. Using a record-linkage scenario, this paper presents a controlled study of how varying degrees of information availability influences the ability to effectively use personal information. We compared the quality of human decision-making using a visual interface that controls the amount of personal information available using visual markup to highlight data discrepancies. With this interface, study participants who viewed only 30% of data content had decision quality similar to those who had full 100% access.",
+    "id":"1",
+    "content":"PPRL_CHI_2018.pdf"
   },
   "2" : {
-    "title":"[1706.02761] Gated Orthogonal Recurrent Units: On Learning to Forget - arXiv",
-    "tag":["Reading","RNN"],
-    "date":"3/27/2018",
-    "abstract":"Paper",
-    "id":"2"
+    "title":"English Out-of-Vocabulary Lexical Evaluation Task",
+    "tag":["arXiv: 1804.04242"],
+    "date":"",
+    "abstract":"Unlike previous unknown nouns tagging task (Curran, 2005)(Ciaramita and Johnson, 2003), this is the first attempt to focus on out-of-vocabulary (OOV) lexical evaluation tasks that does not require any prior knowledge. The OOV words are words that only appear in test samples. The goal of tasks is to pro-vide solutions for OOV lexical classification and predication. The tasks require annotators to conclude the attributes of the OOV words based on their related contexts. Then, we uti-lize unsupervised word embedding methods such as Word2Vec (Mikolov et al., 2013) and Word2GM (Athiwaratkun and Wilson, 2017) to perform the baseline experiments on the cat-egorical classification task and OOV words at-tribute prediction tasks.",
+    "id":"2",
+    "content":"naaclhtl2018_revised.pdf"
+  },
+  "3" : {
+    "title":"Dynamical analysis of recurrent neural circuits in articulated limb controllers for tool use",
+    "tag":["IJCNN2016"],
+    "date":"",
+    "abstract":"Recurrent neural networks (RNNs) often show very complicated temporal behavior. In this paper, we investigate the dynamics of a simple recurrent neural network used in a nontrivial articulated limb control task in a tool use domain. The RNN for the task is evolved by the NeuroEvolution of Augmenting Topologies (NEAT) algorithm. As a non-linear dynamical system, RNNs exhibit strong correlation between their external behavior and internal dynamics. Discovery of the fixed points and limit cycles in the system dynamics will help us understand the roles of neurons and connections in the neural network, and provide insights on how to analyze the function of biology-based nervous systems. We hope our results can provide new criteria to the evaluation of the evolved RNNs, and help the diagnosis of the failures in control problems using neuroevolution.",
+    "id":"3",
+    "content":"wang-ijcnn16.pdf"
   }
 }

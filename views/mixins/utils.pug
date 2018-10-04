@@ -5,9 +5,11 @@ mixin pythonList(a,b,d)
     p
 
 mixin postList(a)
+    //a(class="postList" href='/article/p'+a.id) #{a.title}
+
+    a(class="postList" href='/article/'+a.content) #{a.title}
     each i in a.tag
         span(class="tag")= i
-    a(class="postList" href='/article/'+a.id) #{a.title}
     p= a.authors
     p= a.date
     p= a.abstract
@@ -20,14 +22,9 @@ mixin python(a)
     p= a.content
     script(type='text/javascript', src="https://gist.github.com/hwangtamu/"+a.code+".js")
 
-mixin post(a,b)
-    each i in a.tag
-        span(class="tag")= i
-    p
-        a(class="title" href='/article/'+a.id) #{a.title}
-    p= a.date
-    each i in b
-        | !{i}
+mixin post(file)
+    - var pdf = fs.readFileSync(file)
+    div!= pdf
 
 mixin gist(d)
     img.gistAvatar(src=d.owner.avatar_url)
