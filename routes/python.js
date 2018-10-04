@@ -12,7 +12,7 @@ var find = function (name, query, cb) {
 };
 
 
-router.get('/', function(req, res) {
+router.get('/:name', function(req, res) {
     find('python', {}, function(err, pythonData){
         res.render('python',
             { title : 'Python', pythonData: pythonData[0]})
