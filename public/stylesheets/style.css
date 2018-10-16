@@ -189,11 +189,11 @@ a.gist_name:hover {
 }
 .gist-file,
 .gist-data {
-  max-height: 300px;
+  /*max-height: 300px;*/
   /*max-width: 500px;*/
 }
 .block.gist.gistfile.gist-data{
-  /*max-height: 300px;*/
+  max-height: 300px;
   /*max-width: 500px;*/
 }
 .gist-meta{

@@ -16,12 +16,11 @@ mixin postList(a)
 
 
 mixin python(a)
-    .block
-        each i in a.tag
-            text(class="tag")= i
-        a(href='/article/'+a.id) #{a.title}
-        p= a.content
-        script(type='text/javascript', src="https://gist.github.com/hwangtamu/"+a.code+".js")
+    each i in a.tag
+        text(class="tag")= i
+    a(href='/article/'+a.id) #{a.title}
+    p= a.content
+    script(type='text/javascript', src="https://gist.github.com/hwangtamu/"+a.code+".js")
 
 mixin post(file)
     - var pdf = fs.readFileSync(file)
@@ -54,8 +53,8 @@ mixin gist(d)
         else
             div.date Created #{m} minutes #{s} seconds ago
     div.desc #{d.description}
-
-    script(type='text/javascript', src="https://gist.github.com/"+d.owner.login+"/" + d.id + ".js")
+    .block
+        script(type='text/javascript', src="https://gist.github.com/"+d.owner.login+"/" + d.id + ".js")
 
 mixin codeBlock()
     script.
