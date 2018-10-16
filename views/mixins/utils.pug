@@ -16,11 +16,12 @@ mixin postList(a)
 
 
 mixin python(a)
-    each i in a.tag
-        text(class="tag")= i
-    a(href='/article/'+a.id) #{a.title}
-    p= a.content
-    script(type='text/javascript', src="https://gist.github.com/hwangtamu/"+a.code+".js")
+    .block
+        each i in a.tag
+            text(class="tag")= i
+        a(href='/article/'+a.id) #{a.title}
+        p= a.content
+        script(type='text/javascript', src="https://gist.github.com/hwangtamu/"+a.code+".js")
 
 mixin post(file)
     - var pdf = fs.readFileSync(file)
