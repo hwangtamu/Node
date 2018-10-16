@@ -193,7 +193,7 @@ a.gist_name:hover {
   /*max-height: 300px;*/
   /*max-width: 500px;*/
 }
-.block.gist{
+.block .gist{
   max-height: 300px;
   /*max-width: 500px;*/
 }
