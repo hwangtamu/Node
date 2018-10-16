@@ -192,12 +192,13 @@ a.gist_name:hover {
   max-height: 300px;
   /*max-width: 500px;*/
 }
-block.gist-data{
+.block.gist-data{
   /*max-height: 300px;*/
   /*max-width: 500px;*/
 }
 .gist-meta{
-  visibility: hidden;
+  /*visibility: hidden;*/
+  display: none;
 }
 
 .sidebar .widget {
