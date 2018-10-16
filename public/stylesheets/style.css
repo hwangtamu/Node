@@ -188,7 +188,8 @@ a.gist_name:hover {
   margin-bottom: 25px;
 }
 .gist-file,
-.gist-data {max-height: 300px;
+.gist-data {
+  /*max-height: 300px;*/
   /*max-width: 500px;*/
 }
 .gist-meta{
