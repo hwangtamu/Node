@@ -1,0 +1,8 @@
+extend layout
+include mixins/utils
+
+block content
+    script.
+        var articleData = #{ articleData };
+    articleData
+    +disqus()
