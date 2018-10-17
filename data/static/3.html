@@ -1,0 +1,35 @@
+<h1 data-pats="title_text" class="post_region_title">[Tutorial 3] Launch your first Rails app on Cloud9</h1>
+
+<div class="post_region_text" id="questionText"><p>This tutorial aims to help you start your Homework#2.</p>
+    <p>&nbsp;</p>
+    <p>Step 1: Create a new Cloud9 environment and install Ruby 2.4.0 as in Tutorial 1.</p>
+    <p>&nbsp;</p>
+    <p>Step 2: Download the homework repo from Github and cd into the repo.</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ git clone https</span><span class="pun">:</span><span class="com">//github.com/saasbook/rottenpotatoes-rails-intro.git</span><span class="pln">
+$ cd rottenpotatoes</span><span class="pun">-</span><span class="pln">rails</span><span class="pun">-</span><span class="pln">intro</span></pre>
+    <p>Step 3: Install Rails.</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ sudo su
+$ rvm </span><span class="kwd">use</span><span class="pln"> </span><span class="lit">2.4</span><span class="pun">.</span><span class="lit">0</span><span class="pln">
+$ gem install rails</span></pre>
+    <p>Step 4:&nbsp; Run "bundle install".</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ bundle install </span><span class="pun">--</span><span class="pln">without production
+$ </span><span class="kwd">exit</span></pre>
+    <p>Step 5: Create database and start the app.</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ bundle </span><span class="kwd">exec</span><span class="pln"> rake db</span><span class="pun">:</span><span class="pln">setup
+$ rails server </span><span class="pun">-</span><span class="pln">p $PORT </span><span class="pun">-</span><span class="pln">b $IP</span></pre>
+    <p>Step 6: Click on the link in the pop-up dialogue (near top right corner of the IDE)&nbsp; to view the app.</p>
+    <p>&nbsp;</p>
+    <p><img src="./t3_files/s3" alt=""></p>
+    <p>&nbsp;</p>
+    <p>Now you have started your rottenpotatoes application.</p>
+    <p>&nbsp;</p>
+    <p>=======================================</p>
+    <p>Feel free to report bugs and I may update this post.</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>Han Wang</p>
+    <p>&nbsp;</p><br></div>

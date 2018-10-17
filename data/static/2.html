@@ -1,0 +1,59 @@
+<h1 data-pats="title_text" class="post_region_title">[Tutorial 2] Install and use RSpec</h1>
+
+<div class="post_region_text" id="questionText"><p>Hi, I'm your TA and here I bring the second part of the tutorial.</p>
+    <p>&nbsp;</p>
+    <p>Question: What is RSpec and what does it do?&nbsp;</p>
+    <p>Answer:&nbsp; RSpec is&nbsp;a testing tool for Ruby, created for behavior-driven development (BDD). It is&nbsp;the most frequently used testing library for Ruby in production applications. <a href="https://semaphoreci.com/community/tutorials/getting-started-with-rspec" target="_blank" rel="noreferrer">[Read more]</a></p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>My disclaimer: the content below is based on the assumption that you have completed (not necessarily followed) everything in Tutorial 1 without error.&nbsp;</p>
+    <p>&nbsp;</p>
+    <p><strong>RSpec Installation:</strong></p>
+    <p>&nbsp;</p>
+    <p>1. Every time you start or restart your project on Cloud9, make sure you use the right Ruby version: 2.4.0.&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ rvm </span><span class="kwd">use</span><span class="pln"> </span><span class="lit">2.4</span><span class="pun">.</span><span class="lit">0</span><span class="pln">&nbsp;</span></pre>
+    <p>And the Ruby version can be tested in the command line by</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ ruby </span><span class="pun">--</span><span class="pln">version</span></pre>
+    <p>&nbsp;</p>
+    <p>2. Install RSpec to Ruby2.4.0</p>
+    <p>The way I have found to safely install RSpec is&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ rvmsudo gem install rspec rspec</span><span class="pun">-</span><span class="pln">rails rspec</span><span class="pun">-</span><span class="pln">rails</span><span class="pun">-</span><span class="pln">matchers</span></pre>
+    <p>then run&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ gem list</span></pre>
+    <p>to check if&nbsp;rspec (3.8.0) appears on the gem list.</p>
+    <p>&nbsp;</p>
+    <p><strong>Use RSpec:</strong></p>
+    <p>&nbsp;</p>
+    <p>Take Homework 1 as an example:</p>
+    <p>1. Open&nbsp;<tt>/lib/ruby_intro.rb,</tt> and implement a function:</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="kwd">def</span><span class="pln"> sum arr
+  </span><span class="com"># YOUR CODE HERE</span><span class="pln">
+  arr</span><span class="pun">.</span><span class="pln">inject</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="pun">:+)</span><span class="pln">
+</span><span class="kwd">end</span></pre>
+    <p>2. In the command line window, go to the test file directory</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">ec2</span><span class="pun">-</span><span class="pln">user</span><span class="pun">:~/</span><span class="pln">environment</span><span class="pun">/</span><span class="pln">hw</span><span class="pun">-</span><span class="pln">ruby</span><span class="pun">-</span><span class="pln">intro</span><span class="pun">/</span><span class="pln">spec </span><span class="pun">(</span><span class="pln">master</span><span class="pun">)</span><span class="pln"> $</span></pre>
+    <p>3. Execute the test file with RSpec:</p>
+    <p>&nbsp;</p>
+    <p>This command will test all cases in the file:</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ rspec part1_spec</span><span class="pun">.</span><span class="pln">rb</span></pre>
+    <p>&nbsp;</p>
+    <p>If we only want to test the sum function, we can&nbsp;use&nbsp;<b>[1:1]</b>&nbsp;parameter to specify the first sub-block in the first test block.</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ rspec part1_spec</span><span class="pun">.</span><span class="pln">rb</span><span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="lit">1</span><span class="pun">]</span></pre>
+    <p>4. Check the output:</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="typ">Run</span><span class="pln"> options</span><span class="pun">:</span><span class="pln"> include </span><span class="pun">{:</span><span class="pln">ids</span><span class="pun">=&gt;{</span><span class="str">"./part1_spec.rb"</span><span class="pun">=&gt;[</span><span class="str">"1:1"</span><span class="pun">]}}</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+
+</span><span class="typ">Finished</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> </span><span class="lit">0.00409</span><span class="pln"> seconds </span><span class="pun">(</span><span class="pln">files took </span><span class="lit">0.08416</span><span class="pln"> seconds to load</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">3</span><span class="pln"> examples</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> failures</span></pre>
+    <p>The implemented function doesn't cause any error.</p>
+    <p>&nbsp;</p>
+    <p>Now RSpec works well, enjoy.</p>
+    <p>&nbsp;</p>
+    <p>=======================================</p>
+    <p>Feel free to report bugs and I may update this post.</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>Han Wang</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p><br></div>
