@@ -14,6 +14,11 @@ mixin postList(a)
     p= a.date
     p= a.abstract
 
+mixin tutorList(a)
+    each i in a.tag
+        span(class="tag")= i
+    a(class="tutorList" href='/article/' + a.content) #{a.title}
+
 
 mixin python(a)
     each i in a.tag
