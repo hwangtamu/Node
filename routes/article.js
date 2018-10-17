@@ -19,6 +19,7 @@ var reg = /tutorial.+/;
 router.get('/:name', function(req, res, next) {
     var n = req.params.name;
     if(n.match(reg)){
+        console.log(n);
         res.render('tutorial', {
             articleData: 'data/static/'+n+'.html'
         })
