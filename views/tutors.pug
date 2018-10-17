@@ -1,0 +1,11 @@
+extends layout
+include mixins/utils
+block content
+    script.
+        var postsData = #{ postsData };
+
+    each i in postsData
+        if i.title
+            +postList(i)
+
+
