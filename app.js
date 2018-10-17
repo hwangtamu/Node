@@ -19,6 +19,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var indexRouter = require('./routes/index');
 var postsRouter = require('./routes/posts');
 var pythonRouter = require('./routes/python');
+var tutorRouter = require('./routes/tutors');
 var createRouter = require('./routes/create');
 var articleRouter = require('./routes/article');
 
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/posts', postsRouter);
+app.use('/tutorials', tutorRouter);
 app.use('/python', pythonRouter);
 app.use('/article', articleRouter);
 app.use('/python/create', createRouter);
