@@ -1,0 +1,105 @@
+<h1 data-pats="title_text" class="post_region_title">[Tutorial 4] Deploy Rottenpotatoes app on Heroku</h1>
+
+<div class="post_region_text" id="questionText"><p>After discussion with Dr. Walker, in order to&nbsp;relieve your headache on future homework/project, I decide to write this post on how to make your rails app running on Heroku.</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p><strong>Step 0</strong>: Get&nbsp; a Heroku account from&nbsp;<a href="https://id.heroku.com/login" target="_blank" rel="noreferrer">[Heroku]</a>, have rottenpotatoes app in your Cloud9 environment.</p>
+    <p>&nbsp;</p>
+    <p><strong>Step 1</strong>: Install Heroku toolkit on Cloud9.</p>
+    <p>&nbsp;</p>
+    <p>There's no helpful information on Heroku website. The easiest way to install Heroku is via the Javascript package manager "npm".</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ nvm i v8&nbsp;
+$ npm install </span><span class="pun">-</span><span class="pln">g heroku</span></pre>
+    <p>To test if Heroku toolkit is installed:</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ heroku</span></pre>
+    <p>&nbsp;</p>
+    <p><strong>Step 2</strong>: Install Postgresql. This step is only to prevent the error from installing gem 'pg'. For more advanced usage of postgresql, please read&nbsp;<a href="https://medium.com/@floodfx/setting-up-postgres-on-cloud9-ide-720e5b879154" target="_blank" rel="noreferrer">this article</a>.&nbsp;</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ sudo yum install postgresql postgresql</span><span class="pun">-</span><span class="pln">server postgresql</span><span class="pun">-</span><span class="pln">devel postgresql</span><span class="pun">-</span><span class="pln">contrib postgresql</span><span class="pun">-</span><span class="pln">docs</span></pre>
+    <p>&nbsp;</p>
+    <p><strong>Step 3</strong>: Some modifications to files. (Heroku does not support Sqlite3 database.)</p>
+    <p>In <em>/config/database.yml</em>, comment/delete everything, add the following code：</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="kwd">default</span><span class="pun">:</span><span class="pln"> </span><span class="pun">&amp;</span><span class="kwd">default</span><span class="pln">
+  adapter</span><span class="pun">:</span><span class="pln"> postgresql
+  encoding</span><span class="pun">:</span><span class="pln"> unicode
+  </span><span class="com"># For details on connection pooling, see Rails configuration guide</span><span class="pln">
+  </span><span class="com"># http://guides.rubyonrails.org/configuring.html#database-pooling</span><span class="pln">
+  pool</span><span class="pun">:</span><span class="pln"> </span><span class="pun">&lt;%=</span><span class="pln"> ENV</span><span class="pun">.</span><span class="pln">fetch</span><span class="pun">(</span><span class="str">"RAILS_MAX_THREADS"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="pun">%&gt;</span><span class="pln">
+
+development</span><span class="pun">:</span><span class="pln">
+  </span><span class="pun">&lt;&lt;:</span><span class="pln"> </span><span class="pun">*</span><span class="kwd">default</span><span class="pln">
+  database</span><span class="pun">:</span><span class="pln"> myapp_development
+
+test</span><span class="pun">:</span><span class="pln">
+  </span><span class="pun">&lt;&lt;:</span><span class="pln"> </span><span class="pun">*</span><span class="kwd">default</span><span class="pln">
+  database</span><span class="pun">:</span><span class="pln"> myapp_test
+
+production</span><span class="pun">:</span><span class="pln">
+  </span><span class="pun">&lt;&lt;:</span><span class="pln"> </span><span class="pun">*</span><span class="kwd">default</span><span class="pln">
+  database</span><span class="pun">:</span><span class="pln"> myapp_production
+  username</span><span class="pun">:</span><span class="pln"> myapp
+  password</span><span class="pun">:</span><span class="pln"> </span><span class="pun">&lt;%=</span><span class="pln"> ENV</span><span class="pun">[</span><span class="str">'MYAPP_DATABASE_PASSWORD'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">%&gt;</span></pre>
+    <p>&nbsp;</p>
+    <p>In <em>/Gemfile</em>, replace</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">gem </span><span class="str">'sqlite3'</span></pre>
+    <p>with&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">gem </span><span class="str">'pg'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'~&gt; 0.21'</span></pre>
+    <p>then in command line, run</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ sudo su
+$ bundle install
+$ </span><span class="kwd">exit</span></pre>
+    <p>&nbsp;</p>
+    <p><strong>Step 4</strong>: Push app to Heroku</p>
+    <p>&nbsp;</p>
+    <p>Login Heroku:</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ heroku login</span></pre>
+    <p>then enter your credentials.</p>
+    <p>&nbsp;</p>
+    <p>To save the previous changes to git:</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ git init
+$ git add </span><span class="pun">.</span><span class="pln">
+$ git commit </span><span class="pun">-</span><span class="pln">m </span><span class="str">"&lt;your message&gt;"</span></pre>
+    <p>&nbsp;</p>
+    <p>Create an empty Heroku app:</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ heroku create</span></pre>
+    <p>&nbsp;</p>
+    <p>Push everything to Heroku app:</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ git push heroku master</span></pre>
+    <p>&nbsp;</p>
+    <p><strong>Step 5</strong>: Data migration. (We have not created postgresql db on Cloud9, so we have to migrate the data into a postgresql db on Heroku.)</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$ heroku run rake db</span><span class="pun">:</span><span class="pln">migrate
+$ heroku run rake db</span><span class="pun">:</span><span class="pln">seed</span></pre>
+    <p>&nbsp;</p>
+    <p><strong>Step 6</strong>: Check if your app works on Heroku</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln">$&nbsp;heroku open</span></pre>
+    <p>The error massage says the&nbsp;web browser cannot be opened, but you can copy and open the URL in your web browser.</p>
+    <p>&nbsp;</p>
+    <pre style="white-space: -moz-pre-wrap;white-space: -o-pre-wrap;white-space: pre-wrap;word-wrap: break-word;" class="prettyprint"><span class="pln"> </span><span class="pun">▸</span><span class="pln">    </span><span class="typ">Error</span><span class="pln"> opening web browser</span><span class="pun">.</span><span class="pln">
+ </span><span class="pun">▸</span><span class="pln">    </span><span class="typ">Error</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Exited</span><span class="pln"> </span><span class="kwd">with</span><span class="pln"> code </span><span class="lit">3</span><span class="pln">
+ </span><span class="pun">▸</span><span class="pln">
+ </span><span class="pun">▸</span><span class="pln">    </span><span class="typ">Manually</span><span class="pln"> visit https</span><span class="pun">:</span><span class="com">//your-random-app-name.herokuapp.com/ in your browser.</span></pre>
+    <p>&nbsp;</p>
+    <p>The oringinal web page should look like</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;<img src="./t4_files/s3" alt=""></p>
+    <p>&nbsp;</p>
+    <p>Now you have started your rottenpotatoes application on Heroku.</p>
+    <p>&nbsp;</p>
+    <p>=======================================</p>
+    <p>Feel free to report bugs and I may update this post.</p>
+    <p>&nbsp;</p>
+    <p>Some students asked if they can use the latest version of Ruby and Rails. I will show how to upgrade the rottenpotatoes app to Ruby 2.5.1 and Rails 5.2.1 in the next tutorial.</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>Han Wang</p>
+    <p>&nbsp;</p><br></div>
