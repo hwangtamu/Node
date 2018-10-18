@@ -115,10 +115,12 @@ header {
   color: #14c4fa;
   font-size: 25px;
   text-align: left;
-/*
-   * Note the use of the `main-color`
-   * variable and the `darken` function
-   */
+  position: sticky;
+
+  /*
+     * Note the use of the `main-color`
+     * variable and the `darken` function
+     */
   background-color: #ffffff;
   border-bottom: 1px solid #048fb9;
 /*text-shadow 0px -1px 0px darken(main-color, 30%)*/
@@ -126,7 +128,6 @@ header {
 .top-bar {
   color: #14c4fa;
   background-color: #14c4fa;
-  position: sticky;
 }
 
 .top-bar a:hover {
