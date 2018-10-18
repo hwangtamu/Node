@@ -19,9 +19,9 @@ var reg = /tutorial.+/;
 router.get('/:name', function(req, res, next) {
     var n = req.params.name;
     if(n.match(reg)){
-        console.log(n);
+        var data = fs.readFileSync('data/static/'+n+'.html', 'utf-8');
         res.render('tutorial', {
-            articleData: 'data/static/'+n+'.html'
+            articleData: data
         })
     }else if(n.charCodeAt(0)<58){
         find('python', {}, function(err, docs){
