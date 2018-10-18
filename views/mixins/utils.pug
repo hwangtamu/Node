@@ -15,8 +15,8 @@ mixin postList(a)
     p= a.abstract
 
 mixin tutorList(a)
-    each i in a.tag
-        span(class="tag")= i
+    // each i in a.tag
+    //     span(class="tag")= i
 
     a(href='/article/' + a.content) #{a.title}
 
