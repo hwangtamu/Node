@@ -238,3 +238,29 @@ footer {
   padding-top: 5px;
   font-size: 13px;
 }
+
+pre.prettyprint {
+  margin-bottom: 0px;
+  -moz-box-shadow: 0 1px 2px #d6d9dc;
+  -khtml-box-shadow: 0 1px 2px #d6d9dc;
+  -webkit-box-shadow: 0 1px 2px #d6d9dc;
+  box-shadow: 0 1px 2px #d6d9dc;
+  background: #ecf0f3;
+  background: -khtml-gradient(linear, left top, left bottom, from(#f8f8f9), to(#ecf0f3));
+  background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f9), to(#ecf0f3));
+  background: -webkit-linear-gradient(top, #f8f8f9 0%, #ecf0f3 100%);
+  background: -moz-linear-gradient(center top, #f8f8f9, #ecf0f3);
+  background: -ms-linear-gradient(top, #f8f8f9 0%, #ecf0f3 100%);
+  background: -o-linear-gradient(top, #f8f8f9 0%, #ecf0f3 100%);
+  background: linear-gradient(top, #f8f8f9 0%, #ecf0f3 100%);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #c6c9cc;
+  padding: 10px;
+  margin: 8px;
+  line-height: 1.25;
+}
