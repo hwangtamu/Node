@@ -163,7 +163,12 @@ header {
 .postList{
   font-size: 20px;
 }
-
+. menu img{
+  border: none;
+  background: none;
+  width:54px; /* you can use % */
+  height: auto;
+}
 a.title {
   font-size: 22px;
   text-decoration: none;
