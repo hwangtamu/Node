@@ -126,6 +126,7 @@ header {
 .top-bar {
   color: #14c4fa;
   background-color: #14c4fa;
+  position: sticky;
 }
 
 .top-bar a:hover {
