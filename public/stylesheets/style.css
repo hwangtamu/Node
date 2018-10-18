@@ -165,7 +165,7 @@ header {
 }
 .menu img{
   border: none;
-  /*background: none;*/
+  background: transparent;
   height:40px; /* you can use % */
   width: auto;
 }
