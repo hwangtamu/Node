@@ -165,9 +165,9 @@ header {
 }
 .menu img{
   border: none;
-  background: none;
-  width:54px; /* you can use % */
-  height: auto;
+  /*background: none;*/
+  height:40px; /* you can use % */
+  width: auto;
 }
 a.title {
   font-size: 22px;
