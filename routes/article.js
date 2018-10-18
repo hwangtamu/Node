@@ -20,8 +20,9 @@ router.get('/:name', function(req, res, next) {
     var n = req.params.name;
     if(n.match(reg)){
         var data = fs.readFileSync('data/static/'+n+'.html', 'utf-8');
+        console.log(data);
         res.render('tutorial', {
-            articleData: data
+            Data: data
         })
     }else if(n.charCodeAt(0)<58){
         find('python', {}, function(err, docs){
